@@ -1,0 +1,29 @@
+XDMOD Önemli bilgiler falan galiba
+
+T4 Jokeri için bilgiler - ilk el uluyol bereç - 9
+
+1 - Topkapı - { mult = 5, chips = 86, xmult = 3, xchips = 6}
+2 - Fetihkaıp - { mult = 6, chips = 88, xmult = 1, xchips = 1}
+3 - Vatan - { mult = 5, chips = 77, xmult = 2, xchips = 5}
+4 - Edirnekapı - { mult = 11, chips = 41, xmult = 2, xchips = 8}
+5 - Şehitlik - { mult = 6, chips = 37, xmult = 2, xchips = 9}
+6 - Demirkapı - { mult = 1, chips = 24, xmult = 1, xchips = 9}
+7 - Topçular - { mult = 6, chips = 93, xmult = 1, xchips = 5}
+8 - Rami - { mult = 11, chips = 53, xmult = 2, xchips = 7}
+9 - Uluyol-Bereç - { mult = 11, chips = 99, xmult = 3, xchips = 9}
+10 - Sağmalcılar - { mult = 4, chips = 35, xmult = 1, xchips = 8}
+11 - Bosna Çukurçeşme - { mult = 12, chips = 58, xmult = 3, xchips = 2}
+12 - Ali Fuat Başgil - { mult = 7, chips = 83, xmult = 3, xchips = 4}
+13 - Taşköprü - { mult = 3, chips = 92, xmult = 2, xchips = 1}
+14 - Karadeniz - { mult = 1, chips = 46, xmult = 4, xchips = 10}
+15 - KİPTAŞ Venezia - { mult = 10, chips = 88, xmult = 3, xchips = 8}
+16 - Cumhuriyet Mahallesi - { mult = 1, chips = 74, xmult = 1, xchips = 9}
+17 - 50. Yıl Baştabya - { mult = 1, chips = 18, xmult = 1, xchips = 7}
+18 - Hacı Şükrü - { mult = 5, chips = 52, xmult = 3, xchips = 10}
+19 - Yenimahalle - { mult = 6, chips = 29, xmult = 2, xchips = 8}
+20 - Sultançiftliği - { mult = 8, chips = 53, xmult = 3, xchips = 4}
+21 - Cebeci - { mult = 11, chips = 12, xmult = 3, xchips = 9}
+22 - Mescid-i Selam - { mult = 5, chips = 51, xmult = 1, xchips = 7}
+
+1'den 22'ye doğru yükseliyo(topkapıdan başlıyo, mescid-i selam'da bitiyo) ama 22'ye gelince 1'e geri dönmüyo
+ters gitemeye başlıyo, yani 22'den 1'e doğru (mescid-i selam'dan başlıyo topkapıda bitiyo)
