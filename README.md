@@ -1,5 +1,5 @@
-# xdmod
-Cryptid mod for Balatro, but stupid
+# xdmod 2.0
+Basically Cryptid but stupider
 
 inspiration/ code stolen from:
 
