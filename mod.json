@@ -1,0 +1,14 @@
+{
+	"id": "chiefsosa", 
+	"name": "xmod", 
+	"author": ["xdec"], 
+	"description": "A terrible mod.",
+	"prefix": "xdm", 
+	"main_file": "main.lua", 
+	"priority": 0,
+	"badge_colour": "666665", 
+	"badge_text_colour": "FFFFFF", 
+	"display_name": "xdmod", 
+	"version": "2.0", 
+	"dependencies": []
+}
