@@ -1,6 +1,8 @@
 XDMOD Önemli bilgiler falan galiba
+XDMOD important infor probably maybe
 
 T4 Jokeri için bilgiler - ilk el uluyol bereç - 9
+info about the T4 Joker - first hand is uluyol bereç - 9
 
 1 - Topkapı - { mult = 5, chips = 86, xmult = 3, xchips = 6}
 2 - Fetihkaıp - { mult = 6, chips = 88, xmult = 1, xchips = 1}
@@ -27,3 +29,6 @@ T4 Jokeri için bilgiler - ilk el uluyol bereç - 9
 
 1'den 22'ye doğru yükseliyo(topkapıdan başlıyo, mescid-i selam'da bitiyo) ama 22'ye gelince 1'e geri dönmüyo
 ters gitemeye başlıyo, yani 22'den 1'e doğru (mescid-i selam'dan başlıyo topkapıda bitiyo)
+
+it first goes from 1 to 22(starts from topkapı, ends at mescid-i selam) but once it reaches 22, instead of going back
+to 1, it goes in reverse, so it goes from 22 to 1 (starts from mescid-i selam, ends at topkapı)
