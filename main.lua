@@ -472,7 +472,7 @@ SMODS.Joker {
 	pools = { ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -560,7 +560,7 @@ SMODS.Joker {
 	pools = { ["ncalvert"] = true, ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -680,7 +680,7 @@ SMODS.Joker {
 	pools = { ["ncalvert"] = true, ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -710,7 +710,7 @@ SMODS.Joker {
 			"{C:attention}cards were scored{}, per card"
 		}
 	},
-	config = { extra = { mult = 4 } },
+	config = { extra = { mult = 50 } },
 	rarity = 2,
 	atlas = 'Jokers',
 	pos = { x = 7, y = 0 },
@@ -774,14 +774,15 @@ SMODS.Joker {
 			if fathertime.odds > 1 then
 				if pseudorandom('ROCKSTARMADEE') < (G.GAME.probabilities.normal / fathertime.odds) then
 					fathertime.odds = fathertime.odds - fathertime.removal
+					return {
+						repetitions = card.ability.extra.repetitions,
+						message = "Upgrade",
+						card = context.other_card
+					}
 				end
 			end
-				return {
-					repetitions = card.ability.extra.repetitions,
-					card = context.other_card
-				}
-			end
 		end
+	end
 }
 
 SMODS.Joker {
@@ -993,13 +994,13 @@ T4Joker = {
 		'Rami',
 		'Uluyol-Bereç',
 		'Sağmalcılar',
-		'Bosna Çukurçeşme',
+		'Bosna-Çukurçeşme',
 		'Ali Fuat Başgil',
 		'Taşköprü',
 		'Karadeniz',
 		'KİPTAŞ Venezia',
 		'Cumhuriyet Mahallesi',
-		'50. Yıl Baştabya',
+		'50. Yıl-Baştabya',
 		'Hacı Şükrü',
 		'Yenimahalle',
 		'Sultançiftliği',
@@ -1300,7 +1301,7 @@ SMODS.Joker { key = 'ozkaynak', loc_txt = { name = 'Özkaynak Soda', text = { "{
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.chips, card.ability.extra.hands_left } }
 	end, rarity = 1, atlas = 'SODA', pos = { x = 0, y = 0 }, cost = 4, pools = { ["xdmod_joker"] = true }, unlocked = true, discovered = true,
-	blueprint_compat = true, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
+	blueprint_compat = false, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.joker_main then
@@ -1322,7 +1323,7 @@ SMODS.Joker { key = 'beypazar', loc_txt = { name = 'Beypazarı Soda', text = { "
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.mult, card.ability.extra.hands_left } }
 	end, rarity = 1, atlas = 'SODA', pos = { x = 1, y = 0 }, cost = 4, pools = { ["xdmod_joker"] = true }, unlocked = true, discovered = true,
-	blueprint_compat = true, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
+	blueprint_compat = false, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.joker_main then
@@ -1344,7 +1345,7 @@ SMODS.Joker { key = 'sirma', loc_txt = { name = 'Sırma Soda', text = { "{C:chip
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.chips, card.ability.extra.hands_left } }
 	end, rarity = 1, atlas = 'SODA', pos = { x = 2, y = 0 }, cost = 4, pools = { ["xdmod_joker"] = true }, unlocked = true, discovered = true,
-	blueprint_compat = true, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
+	blueprint_compat = false, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.joker_main then
@@ -1366,7 +1367,7 @@ SMODS.Joker { key = 'damla', loc_txt = { name = 'Damla Soda', text = { "gives {C
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.money, card.ability.extra.hands_left } }
 	end, rarity = 1, atlas = 'SODA', pos = { x = 3, y = 0 }, cost = 4, pools = { ["xdmod_joker"] = true }, unlocked = true, discovered = true,
-	blueprint_compat = true, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
+	blueprint_compat = false, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.joker_main then
@@ -1390,7 +1391,7 @@ SMODS.Joker { key = 'kizilay', loc_txt = { name = 'Kızılay Soda', text = { "{C
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.plusmult, card.ability.extra.minusmult, card.ability.extra.hands_left, G.GAME.probabilities.normal, 4 - G.GAME.probabilities.normal, card.ability.extra.div } }
 	end, rarity = 1, atlas = 'SODA', pos = { x = 4, y = 0 }, cost = 4, pools = { ["xdmod_joker"] = true }, unlocked = true, discovered = true,
-	blueprint_compat = true, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
+	blueprint_compat = false, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.joker_main then
@@ -1416,7 +1417,7 @@ SMODS.Joker { key = 'camlica', loc_txt = { name = 'Çamlıca Gazoz', text = { "{
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.hands_left } }
 	end, rarity = 2, atlas = 'SODA', pos = { x = 5, y = 0 }, cost = 4, pools = { ["xdmod_joker"] = true }, unlocked = true, discovered = true,
-	blueprint_compat = true, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
+	blueprint_compat = false, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.joker_main then
@@ -1439,7 +1440,7 @@ SMODS.Joker { key = 'avsar', loc_txt = { name = 'Avşar Soda', text = { "{C:chip
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.hands_left } }
 	end, rarity = 2, atlas = 'SODA', pos = { x = 6, y = 0 }, cost = 4, pools = { ["xdmod_joker"] = true }, unlocked = true, discovered = true,
-	blueprint_compat = true, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
+	blueprint_compat = false, eternal_compat = false, perishable_compat = true, demicoloncompat = true,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.individual and context.cardarea == G.play then
@@ -1468,8 +1469,8 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'cenk',
 		text = {
-			"{X:mult,C:white}X#1#Mult{}, ",
-			"if blind is beaten with fire effects,",
+			"{X:mult,C:white}X#1#Mult{}, if blind is",
+			"beaten with fire effects,",
 			"gains {C:attention}X#2# Mult{}"
 		}
 	},
@@ -1581,7 +1582,7 @@ SMODS.Joker {
 	pools = { ["ncalvert"] = true, ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -1649,7 +1650,7 @@ SMODS.Joker {
 	pools = { ["ncalvert"] = true, ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -1704,7 +1705,7 @@ SMODS.Joker {
 	pools = { ["ncalvert"] = true, ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -1807,7 +1808,7 @@ SMODS.Joker {
 						 xchips_eoh = 1,
 						 Emult_eoh = 1,
 						 message_eoh = '',
-						 photo_id = 1
+						 photo_id = 3
 	} },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {  } }
@@ -1816,7 +1817,7 @@ SMODS.Joker {
 	atlas = googlephotos.photoatlas,
 	pos = { x = 0, y = 0 }, 
 	-- soul_pos sets the soul sprite, only used in vanilla for legendary jokers and Hologram.
-	soul_pos = { x = 0, y = 1 },
+	soul_pos = { x = 3, y = 0 },
 	cost = 7,
 	pools = { ["ncalvert"] = true, ["xdmod_joker"] = true },
 	unlocked = true,
@@ -1861,7 +1862,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = 'dontrely',
 	loc_txt = {
-		name = 'Banka Hatası',
+		name = 'Bank Error',
 		text = {
 			"{X:green,C:money}#1#"
 
@@ -1914,7 +1915,7 @@ SMODS.Joker {
 	pools = { ["ncalvert"] = true, ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -1943,7 +1944,7 @@ SMODS.Joker {
 			"every boss blind. {X:mult,C:white}X#1#Mult{}, increases by {C:mult}#2#{} every hand."
 		}
 	},
-	config = { extra = { max_ante = 7, triggered = false, hp = 1, inc = 0.5 } },
+	config = { extra = { max_ante = 7, triggered = false, hp = 1, inc = 0.5, checkend = true } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.hp, card.ability.extra.inc, card.ability.extra.max_ante + 1 } }
 	end,
@@ -1964,7 +1965,11 @@ SMODS.Joker {
 		local beno = card.ability.extra
 		if context.end_of_round and beno.triggered == false then
 			beno.triggered = true
-			if G.GAME.round_resets.ante < 7 or G.GAME.round_resets.ante > 9 then
+			if G.GAME.round_resets.ante > 9 then
+				beno.max_ante = 38
+				beno.checkend = false
+			end
+			if (G.GAME.round_resets.ante < 7 or G.GAME.round_resets.ante > 9) or beno.checkend ~= true then
 				if G.GAME.blind:get_type() == 'Boss' then
 					G.GAME.round_resets.ante = math.random(-1, beno.max_ante)
 				end
@@ -1976,9 +1981,7 @@ SMODS.Joker {
 		if context.joker_main then
 			beno.hp = beno.hp + beno.inc
 			beno.triggered = false
-			if G.GAME.round_resets.ante > 8 then
-				beno.max_ante = 38
-			end
+			
 			return {
 				xmult = beno.hp
 			}
@@ -2047,7 +2050,7 @@ SMODS.Joker {
 	pools = {  ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -2077,8 +2080,8 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Reverseprint',
 		text = {
-			"Duplicates the Joker to the right",
-			"{C:red}and then kills itself."
+			"Creates a new copy of the Joker",
+			"to the right {C:red}and then kills itself."
 		}
 	},
 	config = { extra = { triggered = false, making = 1 } },
@@ -2094,7 +2097,7 @@ SMODS.Joker {
 	pools = {  ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -2191,7 +2194,7 @@ SMODS.Joker {
 	blueprint_compat = false,
 	eternal_compat = false,
 	perishable_compat = true,
-	demicoloncompat = false,
+	demicoloncompat = true,
 	add_to_deck = function(self, card, from_debuff)
 		G.jokers.config.card_limit = (G.jokers.config.card_limit + xdm_futureversions)
 	end,
@@ -2314,7 +2317,7 @@ SMODS.Joker {
 			"{X:legendary,C:white}^#1##2#"
 		}
 	},
-	config = { extra = { echips = 6, played = 0, death = false } },
+	config = { extra = { echips = 6, played = 0, death = false, triggered = false } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.echips, [2] = ' Chips' } }
 	end,
@@ -2333,14 +2336,16 @@ SMODS.Joker {
 	demicoloncompat = true,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
-		if context.cry_press and card.states.hover.is == true then
+		if context.cry_press and card.states.hover.is == true and beno.triggered ~= true then
+			beno.triggered = true
 			card:start_dissolve()
     		card = nil
 			return{
 				message = 'Disrupted!'
 			}
 		end
-		if context.end_of_round and beno.death == true then
+		if context.end_of_round and beno.death == true and beno.triggered ~= true then
+			beno.triggered = true
 			card:start_dissolve()
     		card = nil
 			return{
@@ -2572,16 +2577,15 @@ SMODS.Joker {
 SMODS.Joker {
 	key = 'plasma_hd',
 	loc_txt = {
-		name = 'Linked Value',
+		name = 'Incrementing Value',
 		text = {
-			"Adds a permanent {C:blue}hand{} or",
-			"{C:red}discard{}, whenever the",
-			"other one is added."
+			"Adds a(#1#) permanent {C:blue}hand{} and {C:red}discard{},",
+			"whenever a round is finished"
 		}
 	},
-	config = { extra = {  } },
+	config = { extra = { adder = 1, triggered = false } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = {  } }
+		return { vars = { card.ability.extra.adder } }
 	end,
 	rarity = 'xdm_hipower',
 	atlas = 'Jokers',
@@ -2596,37 +2600,15 @@ SMODS.Joker {
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = false,
-	add_to_deck = function(self, card, from_debuff)
-		local hh = G.GAME.round_resets.hands
-		local dd = G.GAME.round_resets.discards
-		if hh > dd then
-			G.GAME.round_resets.discards = G.GAME.round_resets.hands
-		end
-		if hh < dd then
-			G.GAME.round_resets.discards = G.GAME.round_resets.hands
-		end
-	end,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
-		if context.setting_blind or context.forcetrigger then
-			local hh = G.GAME.round_resets.hands
-			local dd = G.GAME.round_resets.discards
-			if hh > dd then
-				G.GAME.round_resets.discards = G.GAME.round_resets.hands
-			end
-			if hh < dd then
-				G.GAME.round_resets.discards = G.GAME.round_resets.hands
-			end
+		if context.end_of_round and beno.triggered ~= true then
+			beno.triggered = true
+			G.GAME.round_resets.discards = G.GAME.round_resets.discards + beno.adder
+			G.GAME.round_resets.hands = G.GAME.round_resets.hands + beno.adder
 		end
-		if context.ending_shop then
-			local hh = G.GAME.round_resets.hands
-			local dd = G.GAME.round_resets.discards
-			if hh > dd then
-				G.GAME.round_resets.discards = G.GAME.round_resets.hands
-			end
-			if hh < dd then
-				G.GAME.round_resets.discards = G.GAME.round_resets.hands
-			end
+		if context.joker_main then
+			beno.triggered = false
 		end
 	end
 }
@@ -2653,10 +2635,10 @@ SMODS.Joker {
 	pools = {  ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
-	demicoloncompat = true,
+	demicoloncompat = false,
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.cardarea == G.play and context.repetition and not context.repetition_only then
@@ -2668,11 +2650,19 @@ SMODS.Joker {
 				card= context.other_card
 			}
 		end
+
 		if context.retrigger_joker_check and not context.retrigger_joker and not (context.other_card.ability and context.other_card.ability.name == "j_xdm_donerkebab") then
 			return {
 				message = 'run it back',
 				repetitions = beno.triggers,
 				card = card,
+			}
+		end
+
+		if context.end_of_round and context.repetition then
+			return{
+				message = 'run it back',
+				repetitions = beno.triggers,
 			}
 		end
 	end
@@ -3159,8 +3149,7 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Salatalık',
 		text = {
-			"{C:green}#1# free rerolls{} after",
-			"the first reroll"
+			"{C:green}#1# free rerolls{}"
 		}
 	},
 	config = { extra = { rerolls = 20 } },
@@ -3175,7 +3164,7 @@ SMODS.Joker {
 	pools = {  ["xdmod_joker"] = true },
 	unlocked = true,
 	discovered = true,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	demicoloncompat = true,
@@ -3186,18 +3175,9 @@ SMODS.Joker {
 				card:start_dissolve()
     			card = nil
 			end
-			G.GAME.current_round.free_rerolls = 1
+			G.GAME.current_round.free_rerolls = beno.rerolls
 			beno.rerolls = beno.rerolls - 1
 			
-		end
-
-		if context.reroll_shop then
-			if beno.rerolls < 2 then
-				card:start_dissolve()
-    			card = nil
-			end
-			G.GAME.current_round.free_rerolls = 1
-			beno.rerolls = beno.rerolls - 1
 		end
 	end
 }
