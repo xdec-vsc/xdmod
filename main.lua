@@ -3127,7 +3127,7 @@ SMODS.Joker {
 		    local text, disp_text, poker_hands, scoring_hand, non_loc_disp_text = G.FUNCS.get_poker_hand_info(G.play.cards)
         	local level = to_number(G.GAME.hands[text].level)
 			if level > 1.1 then
-				if beno.hands__played < 1 then
+				if beno.hands__played < 0.9 then
 					beno.hands__played = beno.hands__played+1
 					return{
 						level_up = -1
@@ -3177,7 +3177,10 @@ SMODS.Joker {
 			end
 			G.GAME.current_round.free_rerolls = beno.rerolls
 			beno.rerolls = beno.rerolls - 1
-			
+		end
+
+		if context.reroll_shop then
+			beno.rerolls = beno.rerolls - 1
 		end
 	end
 }
