@@ -765,12 +765,13 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.odds, card.ability.extra.removal, G.GAME.probabilities.normal } }
 	end,
 	calculate = function(self, card, context)
+		local fathertime = card.ability.extra
 		-- Checks that the current cardarea is G.play, or the cards that have been played, then checks to see if it's time to check for repetition.
 		-- The "not context.repetition_only" is there to keep it separate from seals.
 		if context.cardarea == G.play and context.repetition and not context.repetition_only then
 			-- context.other_card is something that's used when either context.individual or context.repetition is true
 			-- It is each card 1 by 1, but in other cases, you'd need to iterate over the scoring hand to check which cards are there.
-			local fathertime = card.ability.extra
+			
 			if fathertime.odds > 1 then
 				if pseudorandom('ROCKSTARMADEE') < (G.GAME.probabilities.normal / fathertime.odds) then
 					fathertime.odds = fathertime.odds - fathertime.removal
@@ -780,7 +781,13 @@ SMODS.Joker {
 						card = context.other_card
 					}
 				end
+			else if fathertime.odds < 1.1 then
+				return {
+					repetitions = card.ability.extra.repetitions,
+					card = context.other_card
+				}
 			end
+		end
 		end
 	end
 }
@@ -1493,7 +1500,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		local beno = card.ability.extra
 		if context.end_of_round and beno.triggered == false then
-            if G.ARGS.chip_flames.real_intensity >= 0.000001 then
+            if SMODS.last_hand_oneshot then
 				beno.triggered = true
 				beno.xmult = beno.xmult + beno.increment
 			end
@@ -2106,7 +2113,7 @@ SMODS.Joker {
 		if context.joker_main then
 			local index = nil
 			local rightindex = nil
-			local rightkey = 'nonexistent'
+			local rightkey = nil
 			for i, j in ipairs(G.jokers.cards) do
 			    if j == card then
 			        index = i
@@ -2116,7 +2123,9 @@ SMODS.Joker {
 					end
 			    end
 			end
-			if rightkey ~= 'nonexistent' or rightkey ~= 'j_xdm_HONEST' then
+			print(rightkey)
+			print(rightindex)
+			if rightkey ~= nil and rightkey ~= 'j_xdm_HONEST' then
 				card:start_dissolve()
     			card = nil
 				local g = 0
