@@ -2123,8 +2123,6 @@ SMODS.Joker {
 					end
 			    end
 			end
-			print(rightkey)
-			print(rightindex)
 			if rightkey ~= nil and rightkey ~= 'j_xdm_HONEST' then
 				card:start_dissolve()
     			card = nil
